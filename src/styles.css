@@ -18,6 +18,8 @@ h1{
 .post{
 	color: black;
 	border-bottom:  solid #343a40 1px;
+	display: inline-block;
+	margin : 3%;
 }
 
 .post em{
@@ -25,4 +27,7 @@ h1{
 }
 nav{
 	border-bottom : solid white 3px;
+}
+.card-title{
+	border-bottom:  solid firebrick 2px;
 }

@@ -1,7 +1,12 @@
-<div class="panel panel-default">
-	<div class="post">
-		<h4>{{title}}</h4>
-		<em>{{ realDate | date:short }}</em>
-		<p>{{content}}</p>
+<div class="post">
+	<div class="card m-1">
+		<div class="card-body">
+			<img src="http://www.orseu-concours.com/76-292-thickbox/test-epso-de-raisonnement-numerique-4-fr.jpg" alt="test" class="card-img-top">
+			<h4 class="card-title">{{title}}</h4>
+			<em class="card-subtitle">{{ realDate | date:short }}</em>
+			<p class="card-text">{{ (content.length >6) ? (content | slice:0:200)+'...':(content) }}</p>
+		</div>
 	</div>
 </div>
+
+
