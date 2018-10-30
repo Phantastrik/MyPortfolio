@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Oleo+Script');
+@import url('https://fonts.googleapis.com/css?family=Amaranth');
+
+
+
+body{
+	color: #fff;
+	background-color: #343a40;
+	font-family: 'Amaranth', Helvetica, sans-serif;
+}
+
+h1{
+	font-family: 'Oleo Script';
+	text-align: center
+}
+
+.post{
+	color: black;
+	border-bottom:  solid #343a40 1px;
+}
+
+.post em{
+	text-align: right;
+}
+nav{
+	border-bottom : solid white 3px;
+}
