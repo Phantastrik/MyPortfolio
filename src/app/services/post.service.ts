@@ -40,5 +40,14 @@ export class PostService {
  	   firebase.database().ref('/posts').set(this.posts);
   	}
 
+  	getById(id : number){
+  		const post = this.posts.find(
+	        (s) => {
+	           return s.id == id
+	        }
+		);
+		return post;
+  	}
+
 
 }

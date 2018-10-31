@@ -31,3 +31,11 @@ nav{
 .card-title{
 	border-bottom:  solid firebrick 2px;
 }
+
+.badge{
+	font-family: Helvetica;
+}
+.imgmax{
+	max-width : 900px;
+	margin: auto;
+}

@@ -7,7 +7,7 @@ import * as firebase from 'firebase';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'BlackSmokePF';
+  title = 'BlackSmoke Portfolio';
   	constructor() {
 	 	const config = {
 	    apiKey: "AIzaSyDxqo2TXUrjCN7ONmfmm0U_FWnP74Xqyaw",

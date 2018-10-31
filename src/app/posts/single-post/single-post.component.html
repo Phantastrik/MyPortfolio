@@ -1,0 +1,13 @@
+<div class="post">
+	<div class="card m-1">
+		<div class="imgmax">
+			<img src={{post.imgPath}} alt="Image" class="card-img-top"/>
+		</div>
+		<div class="card-body">
+			<h4 class="card-title">{{post.title}}</h4>
+			<em class="card-subtitle">{{ realDate | date:short }}</em>
+			<p class="card-text">{{ post.content }}</p>
+			<a href="#" *ngFor="let tag of post.tags" class="badge badge-pill badge-dark">{{tag}}</a>
+		</div>
+	</div>
+</div>

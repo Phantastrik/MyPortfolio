@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FilterService } from '../services/filter.service';
 
 
 @Component({
@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
 
 	isAuth: boolean;
 
-	constructor() { }
+	constructor(private filterService:FilterService) { }
 
 	ngOnInit() {
 	}

@@ -25,8 +25,8 @@ export class PostListComponent implements OnInit {
 	    this.postService.emitPosts();
 	}
 
-	  onFetch(){
-	    this.postService.getPosts();
-	  }
+	onFetch(){
+		this.postService.getPosts();
+	}
 
 }

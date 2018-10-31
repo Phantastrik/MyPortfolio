@@ -21,10 +21,19 @@ export class PostFormComponent implements OnInit {
   	console.log(form.value);
   	const title = form.value['title'];
   	const content = form.value['content'];  
+  	const imgPath = form.value['imgPath'];
+  	const tags = form.value['tags'].split(' ');  
   	const post = new Post();
+  	const id = (this.postService.posts.length > 0 ) ? ( this.postService.posts[(this.postService.posts.length - 1)].id + 1) : 1;
+
   	post.title = title;
   	post.content = content;
   	post.date = new Date().getTime();
+  	post.imgPath = imgPath;
+  	post.tags = tags;
+  	post.id = id;
+
+
 
   	console.log(post);
 

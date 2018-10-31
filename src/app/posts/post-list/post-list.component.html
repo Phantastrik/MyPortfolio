@@ -1,9 +1,13 @@
 <div class="container">
 	<div class="row">
-		<app-post *ngFor="let post of posts"
+		<app-post 	class="col-xs-12 col-sm-6 col-lg-4"
+					*ngFor="let post of posts"
 	              [title]="post.title"
 	              [content]="post.content"
-	              [date]="post.date" class="col-xs-12 col-sm-6 col-lg-3">
+	              [date]="post.date" 
+	              [imgPath]="post.imgPath"
+	              [tags]="post.tags"
+	              [id]="post.id">
 		</app-post>
 	</div>
 </div>
