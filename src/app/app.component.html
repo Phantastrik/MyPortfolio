@@ -1,6 +1,38 @@
 <app-header></app-header>
 <h1 class="m-5">{{title}}</h1>
-<router-outlet></router-outlet>
+
+<div class="container-fluid h-100">
+    <div class="row h-100">
+        <aside class="col-xs-2 p-0">
+            <nav class="navbar navbar-expand navbar-dark bg-dark flex-md-column flex-row align-items-start">
+                <div class="collapse navbar-collapse">
+                    <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between">
+                    	<li class="nav-item">
+                    		<h5 class="mr-1">Main Tags</h5>
+                    	</li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0" href="#">Inktober</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0" href="#">Drawings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0" href="#">Affiches</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0" href="#">Autres</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+        <main class="col">
+            <router-outlet></router-outlet>
+        </main>
+    </div>
+</div>
+
+
 
 <footer class="page-footer font-small text-white bg-secondary pt-5 pl-4">
 	<div class="container ml-2">

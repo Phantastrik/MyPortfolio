@@ -1,9 +1,48 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilterService {
 
-  constructor() { }
+	filters:string[] = [];
+	filterSubject = new Subject<string[]>();
+
+	constructor() { }
+
+
+
+	emitPosts(){
+		this.filterSubject.next(this.filters);
+	}
+
+
+	setFilters(filters: string){
+		if (filters == ""){
+			this.filters = [];
+		}else{
+			this.filters = filters.split(' ');
+		}
+	}
+
+	clearFilters(){
+		this.filters = []	
+	}
+
+	isValidByTab(fil:string[]){
+		var ok;
+		if (this.filters.length == 0){
+			ok = true;
+		}else{
+			ok = false;
+		}
+		 
+		for(var i = 0;i<this.filters.length && ok == false;i++){
+			ok = fil.indexOf(this.filters[i]) >= 0;
+		}
+		return ok;
+	}
+
 }

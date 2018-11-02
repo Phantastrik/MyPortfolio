@@ -18,7 +18,6 @@ export class PostComponent implements OnInit {
   @Input() id:number;
 	realDate: Date;
 
-	
  	constructor() { }
 
   	ngOnInit() {
@@ -28,6 +27,6 @@ export class PostComponent implements OnInit {
       }else{
         this.imgPath = 'assets/ressources/' + this.imgPath;
       }
-  	}
+     }
 
 }

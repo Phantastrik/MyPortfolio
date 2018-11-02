@@ -10,6 +10,8 @@ import { HeaderComponent } from './header/header.component';
 import { PostFormComponent } from './posts/post-form/post-form.component';
 import { SinglePostComponent } from './posts/single-post/single-post.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { FilterService } from './services/filter.service';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     FormsModule
   ],
   providers: [
-    PostService
+    PostService,
+    FilterService
   ],
   bootstrap: [AppComponent]
 })

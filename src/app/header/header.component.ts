@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FilterService } from '../services/filter.service';
+import {NgForm} from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,10 +11,19 @@ import { FilterService } from '../services/filter.service';
 })
 export class HeaderComponent implements OnInit {
 
-	isAuth: boolean;
 
-	constructor(private filterService:FilterService) { }
+	constructor(private filterService:FilterService,
+				private router:Router) { }
 
 	ngOnInit() {
 	}
+
+	onSubmitFilters(form: NgForm){
+		const search = form.value['search'];
+		this.filterService.setFilters(search);
+		this.filterService.emitPosts();
+		
+		this.router.navigate(['posts']);
+	}
+
 }
