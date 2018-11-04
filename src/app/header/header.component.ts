@@ -20,10 +20,18 @@ export class HeaderComponent implements OnInit {
 
 	onSubmitFilters(form: NgForm){
 		const search = form.value['search'];
-		this.filterService.setFilters(search);
-		this.filterService.emitPosts();
-		
+
+		var filters = search.split(' ');
+
+		for(var i =0; i<filters.length;i++){
+			this.filterService.addFilter(filters[i]);
+		}		
 		this.router.navigate(['posts']);
+	}
+
+	clearFilters(){
+		console.log("clear");
+		this.filterService.clearFilters();
 	}
 
 }

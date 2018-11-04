@@ -22,7 +22,7 @@ export class PostFormComponent implements OnInit {
   	const title = form.value['title'];
   	const content = form.value['content'];  
   	const imgPath = form.value['imgPath'];
-  	const tags = form.value['tags'].split(' ');  
+  	const tags = form.value['tags'].toLowerCase().split(' ');  
   	const post = new Post();
   	const id = (this.postService.posts.length > 0 ) ? ( this.postService.posts[(this.postService.posts.length - 1)].id + 1) : 1;
 

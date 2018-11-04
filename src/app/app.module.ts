@@ -11,6 +11,7 @@ import { PostFormComponent } from './posts/post-form/post-form.component';
 import { SinglePostComponent } from './posts/single-post/single-post.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FilterService } from './services/filter.service';
+import { TaglistComponent } from './taglist/taglist.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FilterService } from './services/filter.service';
     HeaderComponent,
     PostFormComponent,
     SinglePostComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    TaglistComponent
   ],
   imports: [
     BrowserModule,
