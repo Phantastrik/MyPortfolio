@@ -1,49 +1,9 @@
-<!-- <nav class="navbar navbar-expand navbar-dark bg-dark flex-md-column flex-row align-items-start">
-    <div class="collapse navbar-collapse">
-        <div class="flex-md-column flex-row w-100 justify-content-between" >
-            <ul class="flex-md-column navbar-nav">
-                 Main tags
-                <li class="nav-item">
-                    <h5 class="col-xs-12 col-md-2">Main Tags</h5>
-                </li>
-                <li class="nav-item" 
-                    *ngFor="let tag of mainTags;let i = index">
-                    <a class="badge badge-pill badge-secondary" 
-                        (click)="onSelectTag(i)">
-                        {{tag.value}}
-                    </a>
-                    <button *ngIf="tag.active"
-                            class="badge badge-pill badge-light"
-                            (click)="onRemoveFilter(i)">x</button>
-                </li>
-            </ul>
-            <ul class="flex-md-column navbar-nav">
-                 Actives tags 
-                <li class="nav-item">
-                    <h5 class="col-xs-12 col-md-2">Actives Tags</h5>
-                </li>
-                <li class="nav-item" 
-                    *ngFor="let filter of activeFilters;let i = index">
-                    <a class="badge badge-pill badge-secondary" 
-                        (click)="onSelectTag(i)">
-                        {{filter.value}}
-                    </a>
-                    
-                    <button class="badge badge-pill badge-light"
-                            (click)="onRemoveFilter(i)">x</button>
-                </li>
-
-            </ul>
-        </div>
-    </div>
-</nav> -->
-
 <nav class="navbar navbar-expand navbar-dark bg-dark flex-md-column flex-row align-items-start">
     <div class="collapse navbar-collapse">
         <ul class="flex-md-column flex-row w-100 navbar-nav justify-content-between">
             <!-- Main tags -->
             <li class="nav-item">
-                <h5 class="col-xs-12 col-md-2">Main Tags</h5>
+                <h5 class="col-xs-12 col-md-2">Tags principaux</h5>
             </li>
             <li class="nav-item" 
                 *ngFor="let tag of mainTags;let i = index">
@@ -63,7 +23,7 @@
         <ul class="flex-md-column flex-row w-100 navbar-nav justify-content-between">
             <!-- Actives tags -->
             <li class="nav-item">
-                <h5 class="col-xs-12 col-md-2">Actives Tags</h5>
+                <h5 class="col-xs-12 col-md-2">Tags actifs</h5>
             </li>
             <li class="nav-item" 
                 *ngFor="let filter of activeFilters;let i = index">

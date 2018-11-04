@@ -6,7 +6,7 @@
 
 body{
 	color: #fff;
-	background-color: #343a40;
+	background-color: #191919;
 	font-family: 'Amaranth', Helvetica, sans-serif;
 }
 
@@ -17,7 +17,6 @@ h1{
 
 .post{
 	color: black;
-	border-bottom:  solid #343a40 1px;
 	display: inline-block;
 	margin : 1% 0;
 }
@@ -42,4 +41,9 @@ nav{
 
 .tagValue{
 	color: black;
+}
+
+.single-post{
+	margin : 4%;
+	color : black;
 }

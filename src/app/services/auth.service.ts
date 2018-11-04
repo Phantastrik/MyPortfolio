@@ -6,6 +6,7 @@ import * as firebase from 'firebase';
 @Injectable()
 export class AuthService {
 
+	isAuth = false;
 	constructor() { }
 
 	createNewUser(email:string, password:string){
@@ -28,6 +29,7 @@ export class AuthService {
 			(resolve,reject) => {
 				firebase.auth().signInWithEmailAndPassword(email, password).then(
 					() => {
+						this.isAuth = false;
 						resolve();
 					},
 					(error) => {

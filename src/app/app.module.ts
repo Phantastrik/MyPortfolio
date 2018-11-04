@@ -12,6 +12,9 @@ import { SinglePostComponent } from './posts/single-post/single-post.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FilterService } from './services/filter.service';
 import { TaglistComponent } from './taglist/taglist.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 @NgModule({
@@ -23,7 +26,8 @@ import { TaglistComponent } from './taglist/taglist.component';
     PostFormComponent,
     SinglePostComponent,
     NotFoundComponent,
-    TaglistComponent
+    TaglistComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,9 @@ import { TaglistComponent } from './taglist/taglist.component';
   ],
   providers: [
     PostService,
-    FilterService
+    FilterService,
+    AuthService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

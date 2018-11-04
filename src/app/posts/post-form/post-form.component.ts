@@ -38,7 +38,7 @@ export class PostFormComponent implements OnInit {
   	console.log(post);
 
   	this.postService.addPost(post);
-  	this.router.navigate(['posts']);
+     form.reset();
   }
 
 }
