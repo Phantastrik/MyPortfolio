@@ -26,7 +26,7 @@ export class FilterService {
 			this.filters = filters.split(' ');
 		}
 		for (var i = 0; i<this.filters.length; i++) {
-			this.filters[i] = this.filters[i].toLowerCase():
+			this.filters[i] = this.filters[i].toLowerCase();
 		}
 		console.log(this.filters);
 		this.emitPosts();
