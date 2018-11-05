@@ -18,7 +18,7 @@ export class SinglePostComponent implements OnInit {
 
 	constructor(private postService: PostService,
 				private route: ActivatedRoute,
-				private router: Router,) { }
+				private router: Router) { }
 
 	ngOnInit() {
 		try{
@@ -39,6 +39,7 @@ export class SinglePostComponent implements OnInit {
   			this.postService.savePosts();
 			
 		}catch(e){
+			// console.log(e.getMessage());
 			this.router.navigate(['not-found']);
 		}
 	}

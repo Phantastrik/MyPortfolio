@@ -1,4 +1,4 @@
-<div class="single-post">
+<div class="single-post" *ngIf="post">
 	<div class="card">
 		<div class="imgmax">
 			<img src={{fullPathImg}} alt="Image" class="card-img-top"/>
@@ -6,8 +6,10 @@
 		<div class="card-body">
 			<h4 class="card-title">{{post.title}}</h4>
 			<em class="card-subtitle">{{ realDate | date:short }}</em>
-			<p class="card-text">{{ post.content }}</p>
-			<a href="#" *ngFor="let tag of post.tags" class="badge badge-pill badge-dark">{{tag}}</a>
+			<p class="card-text">{{ post.content}}</p>
+			<span *ngIf="post.tags">
+				<a href="#" *ngFor="let tag of post.tags" class="badge badge-pill badge-dark">{{tag}}</a>
+			</span>
 		</div>
 	</div>
 	<button type="button" class="btn btn-secondary mt-5" [routerLink]="[posts]">Retour</button>
