@@ -17,15 +17,16 @@ export class PostComponent implements OnInit {
   @Input() tags:string[];
   @Input() id:number;
 	realDate: Date;
+  fullPathImg:string;
 
  	constructor() { }
 
   	ngOnInit() {
   		this.realDate = new Date(this.date);
       if (!this.imgPath || this.imgPath==''){
-        this.imgPath = 'assets/ressources/no_img.gif';
+        this.fullPathImg = 'assets/ressources/no_img.gif';
       }else{
-        this.imgPath = 'assets/ressources/' + this.imgPath;
+        this.fullPathImg = 'assets/ressources/' + this.imgPath;
       }
      }
 

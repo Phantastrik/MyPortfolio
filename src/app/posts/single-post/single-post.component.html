@@ -1,7 +1,7 @@
 <div class="single-post">
 	<div class="card">
 		<div class="imgmax">
-			<img src={{post.imgPath}} alt="Image" class="card-img-top"/>
+			<img src={{fullPathImg}} alt="Image" class="card-img-top"/>
 		</div>
 		<div class="card-body">
 			<h4 class="card-title">{{post.title}}</h4>
@@ -10,4 +10,5 @@
 			<a href="#" *ngFor="let tag of post.tags" class="badge badge-pill badge-dark">{{tag}}</a>
 		</div>
 	</div>
+	<button type="button" class="btn btn-secondary mt-5" [routerLink]="[posts]">Retour</button>
 </div>

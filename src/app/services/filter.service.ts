@@ -52,7 +52,7 @@ export class FilterService {
 		return ok;
 	}
 	addFilter(filter:string){
-		if(this.filters.indexOf(filter.toLowerCase()) < 0){
+		if(this.filters.indexOf(filter.toLowerCase()) < 0 && filter != '' && filter != ' '){
 			this.filters.push(filter.toLowerCase());
 		}
 		this.emitPosts();

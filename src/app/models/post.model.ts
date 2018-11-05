@@ -5,4 +5,5 @@ export class Post {
 	content: string;	
 	imgPath: string;
 	tags:string[];
+	nbView:number;
 }

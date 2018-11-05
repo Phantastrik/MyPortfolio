@@ -29,8 +29,8 @@ export class HeaderComponent implements OnInit {
 		this.router.navigate(['posts']);
 	}
 
-	clearFilters(){
-		console.log("clear");
+	clearFilters(f: NgForm){
+		f.reset();
 		this.filterService.clearFilters();
 	}
 

@@ -27,15 +27,20 @@ export class SinglePostComponent implements OnInit {
 			this.realDate = new Date(this.post.date); 
 
 			if (!this.post.imgPath || this.post.imgPath==''){
-		    	this.post.imgPath = 'assets/ressources/no_img.gif';
+		    	this.fullPathImg = 'assets/ressources/no_img.gif';
 		  	}else{
-		    	this.post.imgPath = 'assets/ressources/' + this.post.imgPath;
+		    	this.fullPathImg = 'assets/ressources/' + this.post.imgPath;
   			}
+  			if(this.postService.getById(id).nbView){
+  				this.postService.getById(id).nbView ++;
+  			} else{
+  				this.postService.getById(id).nbView =1;
+  			}
+  			this.postService.savePosts();
 			
 		}catch(e){
 			this.router.navigate(['not-found']);
 		}
-		console.log(this.post);
 	}
 
 }
