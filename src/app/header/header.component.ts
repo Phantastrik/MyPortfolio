@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FilterService } from '../services/filter.service';
 import {NgForm} from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -12,14 +11,11 @@ import { AuthService } from '../services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-	isAuth:boolean;
 
 	constructor(private filterService:FilterService,
-				private router:Router,
-				private authService:AuthService) { }
+				private router:Router) { }
 
 	ngOnInit() {
-		this.isAuth = this.authService.isAuth;
 	}
 
 	onSubmitFilters(form: NgForm){
