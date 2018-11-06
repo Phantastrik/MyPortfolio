@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FilterService } from '../services/filter.service';
-import {NgForm} from '@angular/forms';
 import { Router } from '@angular/router';
 
 
@@ -16,22 +15,6 @@ export class HeaderComponent implements OnInit {
 				private router:Router) { }
 
 	ngOnInit() {
-	}
-
-	onSubmitFilters(form: NgForm){
-		const search = form.value['search'];
-
-		var filters = search.split(' ');
-
-		for(var i =0; i<filters.length;i++){
-			this.filterService.addFilter(filters[i]);
-		}		
-		this.router.navigate(['posts']);
-	}
-
-	clearFilters(f: NgForm){
-		f.reset();
-		this.filterService.clearFilters();
 	}
 
 }

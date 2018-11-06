@@ -19,10 +19,12 @@ h1{
 	color: black;
 	display: inline-block;
 	margin : 1% 0;
+		cursor: pointer;
 }
 
 .post em{
 	text-align: right;
+
 }
 nav{
 	border-bottom : solid white 3px;

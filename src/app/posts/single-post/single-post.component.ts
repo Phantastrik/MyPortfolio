@@ -15,6 +15,7 @@ export class SinglePostComponent implements OnInit {
 	id:number;
 	realDate: Date;
 	fullPathImg:string;
+	nextId:number;
 
 	constructor(private postService: PostService,
 				private route: ActivatedRoute,
@@ -38,6 +39,13 @@ export class SinglePostComponent implements OnInit {
   			}
   			this.postService.savePosts();
 			
+			this.nextId = -1;
+			var nextPost = this.postService.getById(this.id++); 
+			if(nextPost){
+				this.nextId= nextPost.id;	
+			}
+  			
+
 		}catch(e){
 			// console.log(e.getMessage());
 			this.router.navigate(['not-found']);

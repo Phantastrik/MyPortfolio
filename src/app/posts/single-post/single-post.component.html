@@ -8,7 +8,7 @@
 			<em class="card-subtitle">{{ realDate | date:short }}</em>
 			<p class="card-text">{{ post.content}}</p>
 			<span *ngIf="post.tags">
-				<a href="#" *ngFor="let tag of post.tags" class="badge badge-pill badge-dark">{{tag}}</a>
+				<span  *ngFor="let tag of post.tags" class="badge badge-pill badge-dark">{{tag}}</span>
 			</span>
 		</div>
 	</div>

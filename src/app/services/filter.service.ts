@@ -23,7 +23,7 @@ export class FilterService {
 		if (filters == ""){
 			this.filters = [];
 		}else{
-			this.filters = filters.split(' ');
+			this.filters = filters.split(',');
 		}
 		for (var i = 0; i<this.filters.length; i++) {
 			this.filters[i] = this.filters[i].toLowerCase();
@@ -49,6 +49,7 @@ export class FilterService {
 		for(var i = 0;i<this.filters.length && ok == false;i++){
 			ok = fil.indexOf(this.filters[i]) >= 0;
 		}
+
 		return ok;
 	}
 	addFilter(filter:string){

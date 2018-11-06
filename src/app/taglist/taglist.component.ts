@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FilterService } from '../services/filter.service';
 import { Subscription } from 'rxjs/Subscription';
-
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-taglist',
@@ -25,6 +25,10 @@ export class TaglistComponent implements OnInit {
 		},
 		{
 			value : "montage",
+			active: false
+		},
+		{
+			value : "aventure stellaire",
 			active: false
 		}
 	]
@@ -56,6 +60,20 @@ export class TaglistComponent implements OnInit {
 	}
 	onRemoveByTag(tag:string){
 		this.filterService.removeFilter(tag);
+	}
+
+	onSubmitFilters(form: NgForm){
+		const search = form.value['search'];
+
+		var filters = search.split(',');
+
+		for(var i =0; i<filters.length;i++){
+			this.filterService.addFilter(filters[i]);
+		}		
+		form.reset();
+	}
+	onClearFilters(){
+		this.filterService.clearFilters();
 	}
 
 }
