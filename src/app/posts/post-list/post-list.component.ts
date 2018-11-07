@@ -17,16 +17,19 @@ export class PostListComponent implements OnInit, OnDestroy {
 	displayablePosts : Post[] = [];
 
 	filterSubscription: Subscription;	
+	tri:string;
 
 	constructor(private postService : PostService,
 				private filterService:FilterService) {}
 
 	ngOnInit() {
+		this.tri = "id";
 		this.onFetch();
 	    this.postsSubscription = this.postService.postSubject.subscribe(
 	      (posts: Post[]) => {
 	        this.posts = posts;
 	        this.displayablePosts = this.displayables(posts);
+	        this.sortDisplayables();
 	      }
 	    );
 
@@ -34,7 +37,8 @@ export class PostListComponent implements OnInit, OnDestroy {
 
 	    this.filterSubscription = this.filterService.filterSubject.subscribe(
 	        (filter: string[]) => {
-	        	this.displayablePosts = this.displayables(this.posts);	        	
+	        	this.displayablePosts = this.displayables(this.posts);	 
+	        	this.sortDisplayables();       	
 		});
       	this.filterService.emitPosts();
    	}
@@ -58,6 +62,53 @@ export class PostListComponent implements OnInit, OnDestroy {
 	    	}	
 		}
     	return res;
+	}
+	sortDisplayables(){
+		if(this.tri == "pop"){
+			this.displayablePosts.sort(
+				(a:Post,b:Post) => {
+					var aview = (a.nbView ? a.nbView : 0);
+					var bview = (b.nbView ? b.nbView : 0);
+					return bview - aview;
+				} 
+			);
+		}else if(this.tri == "dat"){
+			this.displayablePosts.sort(
+				(a:Post,b:Post) => {
+					var adat = (a.date ? a.date : 0);
+					var bdat = (b.date ? b.date : 0);
+					return bdat - adat;
+				} 
+			);
+		}else if(this.tri == "dat-"){
+			this.displayablePosts.sort(
+				(a:Post,b:Post) => {
+					var adat = (a.date ? a.date : 0);
+					var bdat = (b.date ? b.date : 0);
+					return adat - bdat;
+				} 
+			);
+		}else if(this.tri == "tit"){
+			this.displayablePosts.sort(
+				(a:Post,b:Post) => {
+					return a.title.localeCompare(b.title);
+				} 
+			);
+		}else{
+			this.displayablePosts.sort(
+				(a:Post,b:Post) => {
+					var aid = (a.id ? a.id : 0);
+					var bid = (b.id ? b.id : 0);
+					return aid - bid;
+				} 
+			);
+		}
+	}
+	changeTri(tri){
+		this.tri = tri;
+		console.log(tri);
+		this.sortDisplayables();
+
 	}
 
 }

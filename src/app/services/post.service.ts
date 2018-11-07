@@ -24,13 +24,6 @@ export class PostService {
 	    firebase.database().ref('/posts')
 	    .on('value', (data: DataSnapshot) => {
 			this.posts = data.val() ? data.val() : [];
-			this.posts.sort(
-				(a:Post,b:Post) => {
-					var aview = (a.nbView ? a.nbView : 0);
-					var bview = (b.nbView ? b.nbView : 0);
-					return bview - aview;
-				} 
-			)
 			this.emitPosts();
 	        }
 	    )

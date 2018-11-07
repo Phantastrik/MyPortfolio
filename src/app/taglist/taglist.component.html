@@ -34,11 +34,9 @@
                 </a>
                 <button class="badge badge-pill badge-light"
                         (click)="onRemoveByTag(filter)">x</button>
-            </li>
-            
+            </li>            
         </ul>
     </div>
-
     <form class="form" (ngSubmit)="onSubmitFilters(f)" #f="ngForm" >
         <div class="input-group mb-3 mt-3">
             <input class="form-control" type="search" placeholder="ex: dessin, montage" aria-label="Search" name="search" ngModel aria-describedby="basic-addon2" title="separez vos recherche par des ,">

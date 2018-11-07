@@ -30,4 +30,11 @@ export class PostComponent implements OnInit {
       }
      }
 
+     getAllTags(){
+       var res = "";
+       for(var i = 0; i<this.tags.length;i++){
+         res += (this.tags[i] + '\n');
+       }
+       return res;
+     }
 }

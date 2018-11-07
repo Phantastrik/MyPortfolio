@@ -10,7 +10,7 @@
 		<div class="card-footer p-0 pr-2 pl-2">
 			<p class="m-0 p-2">
 				<span *ngFor="let tag of tags | slice:0:3 ;" class="badge badge-pill badge-secondary">{{tag}}</span>
-				<a [routerLink]="[id]" *ngIf="tags.length > 3" class="badge badge-pill badge-dark">...</a>
+				<span *ngIf="tags.length > 3" class="badge badge-pill badge-dark" title="{{getAllTags()}}">...</span>
 			</p>		
 		</div>
 	</div>
