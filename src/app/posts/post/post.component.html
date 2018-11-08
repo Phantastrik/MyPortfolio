@@ -3,7 +3,7 @@
 		<img src={{fullPathImg}} alt="Image" class="card-img-top"/>
 		<div class="card-body">
 			<h4 class="card-title">{{title}}</h4>
-			<em class="card-subtitle">{{ realDate | date:short }}</em>
+			<em class="card-subtitle">{{ realDate | date: 'M/d/yy, h:mm a' }}</em>
 			<p class="card-text">{{ (content.length >6) ? (content | slice:0:50)+'...':(content) }}</p>
 			<a [routerLink]="[id]">Voir plus..</a>	
 		</div>
