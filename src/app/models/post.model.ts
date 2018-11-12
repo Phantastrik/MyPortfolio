@@ -3,7 +3,7 @@ export class Post {
 	title : string;
 	date : number;
 	content: string;	
-	imgPath: string;
+	photo: string;
 	tags:string[];
 	nbView:number;
 }

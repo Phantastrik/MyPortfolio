@@ -13,7 +13,7 @@ export class PostComponent implements OnInit {
 	@Input() title: string;
 	@Input() date: number;
 	@Input() content: string;
-  @Input() imgPath:string;
+  @Input() photo:string;
   @Input() tags:string[];
   @Input() id:number;
 	realDate: Date;
@@ -23,10 +23,10 @@ export class PostComponent implements OnInit {
 
   	ngOnInit() {
   		this.realDate = new Date(this.date);
-      if (!this.imgPath || this.imgPath==''){
+      if (!this.photo || this.photo==''){
         this.fullPathImg = 'assets/ressources/no_img.gif';
       }else{
-        this.fullPathImg = 'assets/ressources/' + this.imgPath;
+        this.fullPathImg = this.photo;
       }
      }
 

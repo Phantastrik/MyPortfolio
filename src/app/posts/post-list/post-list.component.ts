@@ -28,6 +28,7 @@ export class PostListComponent implements OnInit, OnDestroy {
 	    this.postsSubscription = this.postService.postSubject.subscribe(
 	      (posts: Post[]) => {
 	        this.posts = posts;
+
 	        this.displayablePosts = this.displayables(posts);
 	        this.sortDisplayables();
 	      }
@@ -106,7 +107,6 @@ export class PostListComponent implements OnInit, OnDestroy {
 	}
 	changeTri(tri){
 		this.tri = tri;
-		console.log(tri);
 		this.sortDisplayables();
 
 	}

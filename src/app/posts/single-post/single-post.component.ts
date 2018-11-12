@@ -27,10 +27,10 @@ export class SinglePostComponent implements OnInit {
 			this.post = this.postService.getById(id);
 			this.realDate = new Date(this.post.date); 
 
-			if (!this.post.imgPath || this.post.imgPath==''){
+			if (!this.post.photo || this.post.photo==''){
 		    	this.fullPathImg = 'assets/ressources/no_img.gif';
 		  	}else{
-		    	this.fullPathImg = 'assets/ressources/' + this.post.imgPath;
+		    	this.fullPathImg = this.post.photo;
   			}
   			if(this.postService.getById(id).nbView){
   				this.postService.getById(id).nbView ++;
