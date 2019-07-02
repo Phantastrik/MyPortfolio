@@ -24,7 +24,10 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.css",
-              "src/styles.css"
+              {
+                "input": "src/styles.css", // containes url imports to cdn
+                "bundleName": "styles"
+              }
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",

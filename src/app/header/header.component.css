@@ -1,10 +1,10 @@
 h1{
-	width:60%;
+	/* width:59%; */
 }
 .logo{
-	width : 100%;
-	max-width :200px;
+	/* width : 40%; */
+	max-width :150px;
 }
-link{
-	margin:auto;
+.sitename h1 {
+	display: inline-block;
 }

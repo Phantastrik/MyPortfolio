@@ -37,3 +37,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# my own 
+/src/app/firebase_maconf.ts

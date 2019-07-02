@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import * as firebase from 'firebase';
+import * as cfgFb from './firebase_maconf';
 
 @Component({
   selector: 'app-root',
@@ -9,14 +10,7 @@ import * as firebase from 'firebase';
 export class AppComponent {
   title = 'BlackSmoke Portfolio';
   	constructor() {
-	 	const config = {
-	    apiKey: "AIzaSyDxqo2TXUrjCN7ONmfmm0U_FWnP74Xqyaw",
-	    authDomain: "mienportfolio.firebaseapp.com",
-	    databaseURL: "https://mienportfolio.firebaseio.com",
-	    projectId: "mienportfolio",
-	    storageBucket: "mienportfolio.appspot.com",
-	    messagingSenderId: "87504621137"
-	  };
+	 	const config = cfgFb.maConfigFirebase;
 	  firebase.initializeApp(config);
 	}
 }
