@@ -1,11 +1,11 @@
 <div class="post" [routerLink]="[id]" >
 	<div class="card m-1">
-		<img src={{fullPathImg}} alt="Image" class="card-img-top"/>
+		<img src={{photo}} alt="Image" class="card-img-top"/>
 		<div class="card-body">
 			<h4 class="card-title">{{title}}</h4>
 			<em class="card-subtitle">{{ realDate | date: 'M/d/yy, h:mm a' }}</em>
 			<p class="card-text">{{ (content.length >6) ? (content | slice:0:50)+'...':(content) }}</p>
-			<a [routerLink]="[id]">Voir plus..</a>	
+			<a [routerLink]="id">Voir plus..</a>	
 		</div>
 		<div class="card-footer p-0 pr-2 pl-2">
 			<p class="m-0 p-2">
