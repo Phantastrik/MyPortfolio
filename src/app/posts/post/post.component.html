@@ -4,13 +4,13 @@
 		<div class="card-body">
 			<h4 class="card-title">{{title}}</h4>
 			<em class="card-subtitle">{{ realDate | date: 'M/d/yy, h:mm a' }}</em>
-			<p class="card-text">{{ (content.length >6) ? (content | slice:0:50)+'...':(content) }}</p>
-			<a [routerLink]="id">Voir plus..</a>	
+			<p class="card-text text-post">{{ (content.length >6) ? (content | slice:0:100)+'...':(content) }}</p>
+			<a [routerLink]="id" class="text-post">Voir plus..</a>	
 		</div>
 		<div class="card-footer p-0 pr-2 pl-2">
 			<p class="m-0 p-2">
-				<span *ngFor="let tag of tags | slice:0:3 ;" class="badge badge-pill badge-secondary">{{tag}}</span>
-				<span *ngIf="tags.length > 3" class="badge badge-pill badge-dark" title="{{getAllTags()}}">...</span>
+				<span *ngFor="let tag of tags | slice:0:3 ;" class="badge badge-pill badge-secondary text-pills">{{tag}}</span>
+				<span *ngIf="tags.length > 3" class="badge badge-pill badge-dark text-pills" title="{{getAllTags()}}">...</span>
 			</p>		
 		</div>
 	</div>

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark flex-md-column flex-row align-items-start rounded-top-right">
     <div class="collapse navbar-collapse">
-        <ul class="flex-md-column flex-row w-100 navbar-nav justify-content-between">
+        <ul class="flex-column flex-row w-100 navbar-nav justify-content-between">
             <!-- Main tags -->
             <li class="nav-item">
                 <h5 class="col-xs-12 col-md-2">Tags principaux</h5>
@@ -8,7 +8,7 @@
             <li class="nav-item" 
                 *ngFor="let tag of mainTags;let i = index">
                 <a class="badge badge-pill badge-secondary" 
-                    (click)="onSelectTag(i)" routerLink="posts">
+                    (click)="onSelectTag(i)" routerLink="/">
                     {{tag.value}}
                 </a>
                 <button *ngIf="tag.active"
@@ -20,7 +20,7 @@
 </nav>
 <nav class="navbar navbar-expand navbar-dark bg-dark flex-md-column flex-row align-items-start rounded-bottom-right">
     <div class="collapse navbar-collapse">
-        <ul class="flex-md-column flex-row w-100 navbar-nav justify-content-between">
+        <ul class="flex-column flex-row w-100 navbar-nav justify-content-between">
             <!-- Actives tags -->
             <li class="nav-item">
                 <h5 class="col-xs-12 col-md-2">Tags actifs</h5>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FilterService } from '../services/filter.service';
 import { Router } from '@angular/router';
-
+import { Input } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+	@Input() title:string;
 
 	constructor(private filterService:FilterService,
 				private router:Router) { }

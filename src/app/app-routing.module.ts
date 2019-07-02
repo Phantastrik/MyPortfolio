@@ -8,7 +8,7 @@ const routes: Routes = [
 	{path : '', component: PostListComponent},
 	{path : ':id', component: SinglePostComponent},
 	{path : 'not-found', component: NotFoundComponent},
-	{path : '**', redirectTo : 'posts' }
+	{path : '**', redirectTo : '' }
 ];
 
 @NgModule({
