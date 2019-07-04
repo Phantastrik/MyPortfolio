@@ -5,107 +5,107 @@ import {Post} from '../../models/post.model';
 import { FilterService } from '../../services/filter.service';
 
 @Component({
-  selector: 'app-post-list',
-  templateUrl: './post-list.component.html',
-  styleUrls: ['./post-list.component.css']
+	selector: 'app-post-list',
+	templateUrl: './post-list.component.html',
+	styleUrls: ['./post-list.component.css']
 })
 export class PostListComponent implements OnInit, OnDestroy {
 
 	posts: Post[];
 	postsSubscription: Subscription;
 
-	displayablePosts : Post[] = [];
+	displayablePosts: Post[] = [];
 
-	filterSubscription: Subscription;	
-	tri:string;
+	filterSubscription: Subscription;
+	tri: string;
 
-	constructor(private postService : PostService,
-				private filterService:FilterService) {}
+	constructor(private postService: PostService,
+				private filterService: FilterService) {}
 
 	ngOnInit() {
-		this.tri = "id";
+		this.tri = 'dat';
 		this.onFetch();
-	    this.postsSubscription = this.postService.postSubject.subscribe(
-	      (posts: Post[]) => {
-	        this.posts = posts;
+		this.postsSubscription = this.postService.postSubject.subscribe(
+			(posts: Post[]) => {
+			this.posts = posts;
 
-	        this.displayablePosts = this.displayables(posts);
-	        this.sortDisplayables();
-	      }
-	    );
+			this.displayablePosts = this.displayables(posts);
+			this.sortDisplayables();
+			}
+		);
 
-	    this.postService.emitPosts();
+		this.postService.emitPosts();
 
-	    this.filterSubscription = this.filterService.filterSubject.subscribe(
-	        (filter: string[]) => {
-	        	this.displayablePosts = this.displayables(this.posts);	 
-	        	this.sortDisplayables();       	
+		this.filterSubscription = this.filterService.filterSubject.subscribe(
+			(filter: string[]) => {
+				this.displayablePosts = this.displayables(this.posts);
+				this.sortDisplayables();
 		});
-      	this.filterService.emitPosts();
-   	}
+		this.filterService.emitPosts();
+	}
 
-    ngOnDestroy(){
-      this.filterSubscription.unsubscribe();
-      this.postsSubscription.unsubscribe();
-    }
+	ngOnDestroy() {
+		this.filterSubscription.unsubscribe();
+		this.postsSubscription.unsubscribe();
+	}
 
-	onFetch(){
+	onFetch() {
 		this.postService.getPosts();
 	}
 
-	displayables(posts:Post[]){
-		var res = [];
-		if (this.posts){
-			for(var i = 0; i<this.posts.length; i++){
-	    		if(this.filterService.isValidByTab(this.posts[i].tags)){
-	    			res.push(this.posts[i]);
-	    		}	
-	    	}	
+	displayables(posts: Post[]) {
+		let res = [];
+		if (this.posts) {
+			for ( var i = 0; i < this.posts.length; i++) {
+				if (this.filterService.isValidByTab(this.posts[i].tags)) {
+					res.push(this.posts[i]);
+				}
+			}
 		}
-    	return res;
+		return res;
 	}
-	sortDisplayables(){
-		if(this.tri == "pop"){
+	sortDisplayables() {
+		if (this.tri == 'pop') {
 			this.displayablePosts.sort(
-				(a:Post,b:Post) => {
+				(a: Post, b: Post) => {
 					var aview = (a.nbView ? a.nbView : 0);
 					var bview = (b.nbView ? b.nbView : 0);
 					return bview - aview;
-				} 
+				}
 			);
-		}else if(this.tri == "dat"){
+		} else if (this.tri == 'dat') {
 			this.displayablePosts.sort(
-				(a:Post,b:Post) => {
+				(a: Post, b: Post) => {
 					var adat = (a.date ? a.date : 0);
 					var bdat = (b.date ? b.date : 0);
 					return bdat - adat;
-				} 
+				}
 			);
-		}else if(this.tri == "dat-"){
+		} else if (this.tri == 'dat-') {
 			this.displayablePosts.sort(
-				(a:Post,b:Post) => {
+				(a: Post, b: Post) => {
 					var adat = (a.date ? a.date : 0);
 					var bdat = (b.date ? b.date : 0);
 					return adat - bdat;
-				} 
+				}
 			);
-		}else if(this.tri == "tit"){
+		} else if (this.tri == 'tit') {
 			this.displayablePosts.sort(
-				(a:Post,b:Post) => {
+				(a: Post, b: Post) => {
 					return a.title.localeCompare(b.title);
-				} 
+				}
 			);
-		}else{
+		} else {
 			this.displayablePosts.sort(
-				(a:Post,b:Post) => {
+				(a: Post, b: Post) => {
 					var aid = (a.id ? a.id : 0);
 					var bid = (b.id ? b.id : 0);
 					return aid - bid;
-				} 
+				}
 			);
 		}
 	}
-	changeTri(tri){
+	changeTri(tri) {
 		this.tri = tri;
 		this.sortDisplayables();
 
