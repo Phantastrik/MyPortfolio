@@ -3,7 +3,7 @@
 		<img src={{photo}} alt="Image" class="card-img-top"/>
 		<div class="card-body">
 			<h4 class="card-title">{{title}}</h4>
-			<em class="card-subtitle">{{ realDate | date: 'M/d/yy, h:mm a' }}</em>
+			<em class="card-subtitle">{{ realDate | date: 'dd/MM/yyyy' }}</em>
 			<p class="card-text text-post">{{ (content.length >6) ? (content | slice:0:100)+'...':(content) }}</p>
 			<a [routerLink]="id" class="text-post">Voir plus..</a>	
 		</div>

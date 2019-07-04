@@ -3,70 +3,70 @@ import { Subject } from 'rxjs/Subject';
 
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class FilterService {
 
-	filters:string[] = [];
+	filters: string[] = [];
 	filterSubject = new Subject<string[]>();
 
 	constructor() { }
 
 
 
-	emitPosts(){
+	emitPosts() {
 		this.filterSubject.next(this.filters);
 	}
 
 
-	setFilters(filters: string){
-		if (filters == ""){
+	setFilters(filters: string) {
+		if (filters == '' ) {
 			this.filters = [];
-		}else{
+		} else {
 			this.filters = filters.split(',');
 		}
-		for (var i = 0; i<this.filters.length; i++) {
+		for (var i = 0; i < this.filters.length; i++) {
 			this.filters[i] = this.filters[i].toLowerCase();
 		}
 		console.log(this.filters);
 		this.emitPosts();
 	}
 
-	clearFilters(){
+	clearFilters() {
 		this.filters = [];
 		console.log(this.filters);
 		this.emitPosts();
 	}
 
-	isValidByTab(fil:string[]){
+	isValidByTab(fil: string[]) {
 		var ok;
-		if (this.filters.length == 0){
+		if (this.filters.length == 0) {
 			ok = true;
-		}else{
+		} else {
 			ok = false;
 		}
-		 
-		for(var i = 0;i<this.filters.length && ok == false;i++){
+
+		for (var i = 0; i < this.filters.length && ok == false; i++) {
 			ok = fil.indexOf(this.filters[i]) >= 0;
 		}
 
 		return ok;
 	}
-	addFilter(filter:string){
-		if(this.filters.indexOf(filter.toLowerCase()) < 0 && filter != '' && filter != ' '){
+	addFilter(filter: string) {
+		if (this.filters.indexOf(filter.toLowerCase()) < 0 && filter != '' && filter != ' ') {
 			this.filters.push(filter.toLowerCase());
 		}
 		this.emitPosts();
 	}
 
-	removeFilter(filter:string){
+	removeFilter(filter: string) {
 		var i = this.filters.indexOf(filter); 
-		if( i >= 0){
-			this.filters.splice(i,1);
+		if ( i >= 0) {
+			this.filters.splice(i, 1);
 		}
 		this.emitPosts();
 	}
-	isFilter(filter:string){
+	isFilter(filter: string) {
 		return (this.filters.indexOf(filter) >= 0);
 	}
 
