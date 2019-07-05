@@ -38,21 +38,14 @@ export class PostService {
 	getPosts() {
 	    firebase.database().ref('/posts')
 	    .on('value', (data: DataSnapshot) => {
+			console.log('getting all posts');
+			console.log();
 			this.posts = data.val() ? data.val() : [];
 			this.emitPosts();
+			console.log(this.posts);
 	        }
 	    );
   	}
-  	addPost(post: Post) {
-		this.posts.push(post);
-		this.savePosts();
-		this.emitPosts();
-  	}
-
-  	savePosts() {
- 	   firebase.database().ref('/posts').set(this.posts);
-  	}
-
   	getById(id: number) {
   		const post = this.posts.find(
 	        (s) => {

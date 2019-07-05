@@ -43,8 +43,10 @@ export class PostListComponent implements OnInit, OnDestroy {
 			(filter: string[]) => {
 				if (filter.length > 0) {
 					this.onFetchAll();
+					console.log('fetch all');
 				} else {
 					this.onFetch();
+					console.log('fetch some');
 				}
 				this.displayablePosts = this.displayables(this.posts);
 				this.sortDisplayables();
@@ -63,8 +65,8 @@ export class PostListComponent implements OnInit, OnDestroy {
 	}
 	onFetchAll() {
 		this.restrictedContent = false;
+		console.log('post-list fetchall');
 		this.postService.getPosts();
-		this.restrictedContent = false;
 	}
 
 	displayables(posts: Post[]) {
