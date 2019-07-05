@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import * as firebase from 'firebase';
 import * as cfgFb from './firebase_maconf';
 import { Meta, Title } from '@angular/platform-browser';
@@ -10,14 +10,16 @@ import { Meta, Title } from '@angular/platform-browser';
 })
 export class AppComponent {
   title = 'BlackSmoke Portfolio';
-  constructor(private meta: Meta,
-              private htmltitle: Title) {
+  constructor(private metaService: Meta,
+              private titleService: Title,
+              public el: ElementRef) {
     const config = cfgFb.maConfigFirebase;
     firebase.initializeApp(config);
-    this.meta.addTag({ name: 'description', content: 'Portfolio de Victor Ledoux, BlackSmoke, artiste amateur' });
-    this.meta.addTag({ name: 'author', content: 'victor ledoux, BlackSmoke' });
-    this.meta.addTag({ name: 'keywords', content: 'blacksmoke, portfolio, dessin, art, montage, affiche, victor, ledoux' });
-    this.htmltitle.setTitle('BlackSmoke\'s Portfolio');
+    this.metaService.addTag({ name: 'description', content: 'Portfolio de Victor Ledoux, BlackSmoke, artiste amateur' });
+    this.metaService.addTag({ name: 'author', content: 'victor ledoux, BlackSmoke' });
+    this.metaService.addTag({ name: 'keywords', content: 'blacksmoke, portfolio, dessin, art, montage, affiche, victor, ledoux' });
+    this.titleService.setTitle('BlackSmoke\'s Portfolio');
   }
+ 
 }
 

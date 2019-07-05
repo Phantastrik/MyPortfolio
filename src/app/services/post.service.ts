@@ -9,15 +9,30 @@ import DataSnapshot = firebase.database.DataSnapshot;
 })
 export class PostService {
 
-	posts : Post[];
+	posts: Post[];
 	postSubject = new Subject<Post[]>();
 
 	constructor() {
-		this.getPosts()
+		// this.getPosts();
+		this.getSomePosts(10);
 	}
 
-	emitPosts(){
+	emitPosts() {
 		this.postSubject.next(this.posts);
+	}
+
+	getSomePosts(number: number) {
+		firebase.database().ref('/posts').limitToLast(number)
+	    .on('value', (data: DataSnapshot) => {
+			let dataGet = data.val() ? data.val() : {};
+			let keys = Object.keys(dataGet);
+			this.posts = [];
+			keys.forEach(element => {
+				this.posts.push(dataGet[element]);
+			});
+			this.emitPosts();
+	        }
+	    );
 	}
 
 	getPosts() {
@@ -26,7 +41,7 @@ export class PostService {
 			this.posts = data.val() ? data.val() : [];
 			this.emitPosts();
 	        }
-	    )
+	    );
   	}
   	addPost(post: Post) {
 		this.posts.push(post);
@@ -34,14 +49,14 @@ export class PostService {
 		this.emitPosts();
   	}
 
-  	savePosts(){
+  	savePosts() {
  	   firebase.database().ref('/posts').set(this.posts);
   	}
 
-  	getById(id : number){
+  	getById(id: number) {
   		const post = this.posts.find(
 	        (s) => {
-	           return s.id == id
+	           return s.id == id;
 	        }
 		);
 		return post;
