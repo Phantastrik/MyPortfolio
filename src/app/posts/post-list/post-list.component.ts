@@ -13,6 +13,8 @@ export class PostListComponent implements OnInit, OnDestroy {
 
 	posts: Post[];
 	postsSubscription: Subscription;
+	postNumber = 10;
+	restrictedContent = true;
 
 	displayablePosts: Post[] = [];
 
@@ -23,6 +25,7 @@ export class PostListComponent implements OnInit, OnDestroy {
 				private filterService: FilterService) {}
 
 	ngOnInit() {
+		this.restrictedContent = true;
 		this.tri = 'dat';
 		this.onFetch();
 		this.postsSubscription = this.postService.postSubject.subscribe(
@@ -38,6 +41,11 @@ export class PostListComponent implements OnInit, OnDestroy {
 
 		this.filterSubscription = this.filterService.filterSubject.subscribe(
 			(filter: string[]) => {
+				if (filter.length > 0) {
+					this.onFetchAll();
+				} else {
+					this.onFetch();
+				}
 				this.displayablePosts = this.displayables(this.posts);
 				this.sortDisplayables();
 		});
@@ -50,7 +58,13 @@ export class PostListComponent implements OnInit, OnDestroy {
 	}
 
 	onFetch() {
+		this.restrictedContent = true;
+		this.postService.getSomePosts(this.postNumber);
+	}
+	onFetchAll() {
+		this.restrictedContent = false;
 		this.postService.getPosts();
+		this.restrictedContent = false;
 	}
 
 	displayables(posts: Post[]) {
